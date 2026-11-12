@@ -62,27 +62,24 @@ input{-webkit-user-select:text;user-select:text;touch-action:auto}
 .timer{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:#121212;color:#fff;font-weight:800;font-size:16px;font-variant-numeric:tabular-nums}
 .timer i{width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 0 3px rgba(254,44,85,.3);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:.3}}
-.timer.hurry{background:var(--pink);animation:bump .5s infinite}
+.timer.hurry{background:var(--pink)}
 
 #game{position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;pointer-events:none}
 
 /* ---------- black Coins card (basket) ---------- */
 .ccard{position:absolute;left:0;top:0;z-index:17;width:190px;height:83px;border-radius:12px;padding:10px 13px;color:#fff;will-change:transform;
   background:#1a1a1a url(data:image/webp;base64,UklGRqgDAABXRUJQVlA4IJwDAACwLwCdASowAvQAPkkkkUYioiGhIGgAUAkJaW7hIE6I3oz0WfJT6WdNYnAPofcTjkENVSbJiHVUmyYWIe21tkNb15yhZHQKg0mmpA/yA8WL1ypRdZoHyjF73ssr6L7Oup/6weJ1P48da+iPQsbwLzMyBAqToyP+Jqc+oB4qx3w+N3UInPOGfAkvs2TKH3+24RDcN8QD99EroIyTDl3GCEBoC/jMgAGaGjOK4Fg2Y1x417mSOJ0zDsY1IXnAprZhDZ9rew3v0O2zG1j9D7iPUTF1Hw/ROdmOCPC8gd6JQDlZOyzdOL2X3nKhUdrcgKchl7wlmCgCMhqqgdR+2zAbWePB6qxBhzPEQhvZSBQIbvzaaK2N+GbcBA9bHy0+EWqWCTQZvc3DwFDipN3rhFXiKReAYKsobdQAtL+O7OkXN4e1fCMDmDqmYdFuVwXd/jjldAeNjfGvcm6I6dBFmqNgxrHm+cB5yr+MBlYASuC/Acy9gkzTk+xydBPUBkSokyByIUwWlTAWcAAA/vgmCHViOw5yzk1Vr7pu25pXYauw05uSjKIikpZ/ORkhYL2LhRGmgrkNdr6uyS6vGX1DKZeaGrJYqm9PT3Q4DFQUQ2m2koKRnsgBTVQcTc4FUxDs1E9i3ItF9QKOxwxwp2FcaZvZHP+IPKBBMNnO+nzYPMIWvxIwORHrPhD3Qvl6QvpiUeahHaCz9CKoG23cG0qKrHQq/BwfYnu2Nm9YHDazTxGTht1QLbSNkZHauFDceSe1Ym1NX3Y622Doq3wDRcP03HpBJlkIoxFu6TWabTF76DXpA3KXKw5MEvS+wiLUIWuPBMGzdvHeZuddW241PnuvEUGEgWBW2+dbid2BLR1xeYGmBuxd9uUQ8G6t87pB+DofuW462xxLX7ta1YxGGeu91dP0SpsUXVprITFJiBxptnvleMsDIl4Acjp/1AzzTpOSnVDsdLuDPQv1WoaJKa+UXLYB7/D4NjBXItelm2ehCBGgotnwihQqfb/YM32u2aB/BnOAn9vOVdfxmXpJR5GREf894Oj5ByzuAk7mc+qDdaIWv1/PCc2C/C51wXitA5GmAjfGxfzRY4VnfVLTuUBKEJA0orC88Z/OkjGuFbgmVzHLaCQlvWMK0mZK8BUbFfvB46/tPQzIGvfSakn7vkTJehlstl3Q84lmHb6rAmCDZQCAKZuMcFUWmdAbnw5NlWKaJOw5QntvvdscUVmUUvAAAAA=) center/100% 100% no-repeat;
-  box-shadow:0 14px 28px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.08);transition:box-shadow .25s}
+  box-shadow:0 14px 28px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.08)}
 .ccard small{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.85)}
 .ccard .n{display:flex;align-items:center;gap:6px;margin-top:4px;font-size:28px;font-weight:900;line-height:1;font-variant-numeric:tabular-nums}
 .ccard .n img{width:26px;height:26px}
-.ccard.glow{box-shadow:0 14px 28px rgba(0,0,0,.28),0 0 0 3px rgba(255,200,61,.7),0 0 30px rgba(255,200,61,.6)}
-.ccard.catch{animation:catch .22s ease-out}
-@keyframes catch{40%{transform:var(--t) scale(1.05,.92)}}
-.pop{position:absolute;z-index:16;pointer-events:none;font-weight:900;font-size:24px;color:#121212;white-space:nowrap;text-shadow:0 0 6px #fff,0 0 12px #fff;animation:pop 1s ease-out forwards}
-.pop.big{font-size:32px;color:#d48a00}
-@keyframes pop{0%{opacity:0;transform:translate(-50%,0) scale(.5)}20%{opacity:1;transform:translate(-50%,-16px) scale(1.2)}100%{opacity:0;transform:translate(-50%,-70px)}}
+.ccard::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;border-radius:inherit;pointer-events:none;box-shadow:0 0 0 3px rgba(255,200,61,.7),0 0 30px rgba(255,200,61,.6);opacity:0;transition:opacity .25s}
+.ccard.glow::after{opacity:1}
 
 /* ---------- overlays ---------- */
 .overlay{position:absolute;top:0;right:0;bottom:0;left:0;z-index:40;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:opacity .35s}
-.overlay.hide{opacity:0;pointer-events:none}
+.overlay.hide{opacity:0;pointer-events:none;visibility:hidden;transition:opacity .35s,visibility 0s .35s}
+.overlay.hide .rays,.overlay.hide .bigc{animation-play-state:paused}
 .overlay .bigc{width:110px;height:110px;filter:drop-shadow(0 10px 20px rgba(200,140,0,.35));animation:float 2.4s ease-in-out infinite}
 @keyframes float{50%{transform:translateY(-8px) rotate(-6deg)}}
 .overlay h1{margin-top:16px;font-size:30px;font-weight:900;line-height:1.1}
@@ -237,13 +234,61 @@ input{-webkit-user-select:text;user-select:text;touch-action:auto}
   document.querySelectorAll('img[data-coin]').forEach(i => i.src = COIN);
   const coinImg = new Image(); coinImg.src = COIN;
   const fmt = n => n.toLocaleString('en-US');
-  const vib = p => { if (navigator.vibrate) try { navigator.vibrate(p); } catch(_){} };
+  let lastVib = 0;
+  const vib = (p, force) => {
+    if (!navigator.vibrate) return;
+    const now = performance.now(); if (!force && now - lastVib < 90) return; lastVib = now;
+    try { navigator.vibrate(p); } catch(_){}
+  };
   const GAME_SEC = 7, SMALL = 100, BIG = 500;
 
-  // ---------- phone & tablet full screen, computer: phone frame ----------
-  const phoneEl = $('phone'); let S = 1, PW = 390, PH = 844;
-  const mq = q => !!(window.matchMedia && window.matchMedia(q).matches);
+  // cached DOM refs (no lookups inside the game loop)
+  const phoneEl = $('phone'), card = $('card'), scoreEl = $('score'), scoreN = $('scoreN'), cardN = $('cardN'),
+        timeN = $('timeN'), timerEl = $('timer');
   const cv = $('game'), cx = cv.getContext('2d'), fxc = $('fx'), fx = fxc.getContext('2d');
+  let S = 1, PW = 390, PH = 844, DPR = 1, phoneLeft = 0;
+  const mq = q => !!(window.matchMedia && window.matchMedia(q).matches);
+
+  // ---------- pre-rendered sprites (shadows are baked in once, not blurred every frame) ----------
+  const SPR_R = 30;
+  let sprSmall = null, sprBig = null, trailSpr = null, popSmall = null, popBig = null, sprDPR = 0;
+  function mk(w, h){
+    const c = document.createElement('canvas');
+    c.width = Math.ceil(w * DPR); c.height = Math.ceil(h * DPR);
+    const g = c.getContext('2d'); g.setTransform(DPR, 0, 0, DPR, 0, 0);
+    return [c, g];
+  }
+  function coinSprite(big){
+    const pad = big ? 26 : 16, size = SPR_R * 2 + pad * 2, [c, g] = mk(size, size);
+    g.drawImage(coinImg, pad, pad, SPR_R * 2, SPR_R * 2);
+    return { c, half: size / 2 };
+  }
+  function makeTrail(){
+    const w = SPR_R * 1.1, h = SPR_R * 3.2, [c, g] = mk(w, h);
+    const gr = g.createLinearGradient(0, 0, 0, h);
+    gr.addColorStop(0, 'rgba(255,200,61,0)'); gr.addColorStop(1, 'rgba(255,200,61,.35)');
+    g.fillStyle = gr; g.beginPath(); g.moveTo(0, h); g.lineTo(w, h); g.lineTo(w / 2, 0); g.fill();
+    return c;
+  }
+  function popSprite(txt, big){
+    const fs = big ? 32 : 24, font = '900 ' + fs + 'px Montserrat, system-ui, sans-serif';
+    const m = document.createElement('canvas').getContext('2d'); m.font = font;
+    const w = Math.ceil(m.measureText(txt).width) + 28, h = fs + 28, [c, g] = mk(w, h);
+    g.font = font; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
+    g.shadowColor = '#fff'; g.shadowBlur = 12; g.strokeStyle = '#fff'; g.lineWidth = 5; g.strokeText(txt, w / 2, h / 2);
+    g.shadowBlur = 0; g.fillStyle = big ? '#d48a00' : '#121212'; g.fillText(txt, w / 2, h / 2);
+    return { c, w, h };
+  }
+  function buildPops(){ popSmall = popSprite('+' + SMALL, false); popBig = popSprite('+' + BIG, true); }
+  function buildSprites(force){
+    if (!force && sprDPR === DPR) return;
+    sprDPR = DPR; trailSpr = makeTrail(); buildPops();
+    if (coinImg.complete && coinImg.naturalWidth){ sprSmall = coinSprite(false); sprBig = coinSprite(true); }
+  }
+  coinImg.onload = () => buildSprites(true);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(buildPops);
+
+  // ---------- phone & tablet full screen, computer: phone frame ----------
   function fit(){
     const vv = window.visualViewport, W = vv ? vv.width : innerWidth, H = vv ? vv.height : innerHeight;
     const touch = W < 500 || mq('(pointer: coarse)') || mq('(hover: none)');
@@ -254,75 +299,116 @@ input{-webkit-user-select:text;user-select:text;touch-action:auto}
     phoneEl.style.transform = phoneEl.style.webkitTransform = 'scale(' + S + ')';
     phoneEl.classList.toggle('full', touch);
     phoneEl.classList.toggle('wide', touch && PW > 520);
-    const dpr = Math.min(window.devicePixelRatio || 1, 2) * Math.max(1, S);
-    [cv, fxc].forEach(c => { c.width = PW * dpr; c.height = PH * dpr; c.getContext('2d').setTransform(dpr,0,0,dpr,0,0); });
-    cardX = Math.min(Math.max(cardX, 0), PW - CW); targetX = cardX; placeCard();
+    // canvas resolution capped at 2x: on tablets it used to reach 4x (16x the pixels)
+    DPR = Math.min(2, (window.devicePixelRatio || 1) * Math.max(1, S));
+    [cv, fxc].forEach(c => {
+      const w = Math.round(PW * DPR), h = Math.round(PH * DPR);
+      if (c.width !== w || c.height !== h){ c.width = w; c.height = h; }
+      c.getContext('2d').setTransform(DPR, 0, 0, DPR, 0, 0);
+    });
+    buildSprites();
+    cardX = Math.min(Math.max(cardX, 0), PW - CW); targetX = cardX; placedX = NaN; placeCard();
+    idle = false;
   }
+  let fitQ = 0;
+  const qfit = () => { if (!fitQ) fitQ = requestAnimationFrame(() => { fitQ = 0; fit(); }); };
   const clock = () => { const d = new Date(); $('clock').textContent = (d.getHours() % 12 || 12) + ':' + String(d.getMinutes()).padStart(2,'0'); };
   clock(); setInterval(clock, 10000);
 
   // ---------- Coins card (basket) ----------
-  const card = $('card'), CW = 190, CH = 84;
-  let cardX = (390 - CW) / 2, targetX = cardX;
+  const CW = 190, CH = 84;
+  let cardX = (390 - CW) / 2, targetX = cardX, placedX = NaN, placedY = NaN;
   const cardY = () => PH - CH - 56;                             // near the bottom
-  function placeCard(){ const t = 'translate(' + cardX.toFixed(1) + 'px,' + cardY().toFixed(1) + 'px)'; card.style.setProperty('--t', t); card.style.transform = t; }
-  const toLocalX = cx0 => (cx0 - phoneEl.getBoundingClientRect().left) / S;
+  function placeCard(){
+    const y = cardY();
+    if (Math.abs(cardX - placedX) < .05 && y === placedY) return;   // skip style writes when the card is still
+    placedX = cardX; placedY = y;
+    card.style.transform = 'translate3d(' + cardX.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)';
+  }
+  const toLocalX = x => (x - phoneLeft) / S;
   let dragging = false, grabOff = CW / 2;
   phoneEl.addEventListener('pointerdown', e => {
     if (!running) return;
+    phoneLeft = phoneEl.getBoundingClientRect().left;          // measured once per touch, not on every move
     dragging = true; const x = toLocalX(e.clientX);
     grabOff = (x >= cardX && x <= cardX + CW) ? x - cardX : CW / 2; targetX = x - grabOff;
   });
-  addEventListener('pointermove', e => { if (dragging) targetX = toLocalX(e.clientX) - grabOff; });
+  addEventListener('pointermove', e => { if (dragging) targetX = toLocalX(e.clientX) - grabOff; }, { passive: true });
   addEventListener('pointerup', () => dragging = false);
   addEventListener('pointercancel', () => dragging = false);
   addEventListener('keydown', e => { if (e.key === 'ArrowLeft') targetX -= 50; if (e.key === 'ArrowRight') targetX += 50; });
 
-  // ---------- particles (sparks, rings, coin trails) ----------
+  // ---------- particles (sparks, rings) ----------
   let parts = [];
+  const SPARK_COLS = ['#ffd84a','#ffb300','#fff3b0','#25f4ee','#fe2c55'];
   function burst(x, y, big){
-    const n = big ? 30 : 16, cols = ['#ffd84a','#ffb300','#fff3b0','#25f4ee','#fe2c55'];
+    const n = big ? 30 : 16;
     for (let i = 0; i < n; i++){
       const a = Math.random() * Math.PI * 2, v = (big ? 220 : 150) + Math.random() * 160;
-      parts.push({ k:'s', x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 80, r: 2 + Math.random() * 3, c: cols[i % cols.length], life: .6 + Math.random() * .4, t: 0 });
+      parts.push({ k: 0, x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 80, r: 2 + Math.random() * 3, c: SPARK_COLS[i % 5], life: .6 + Math.random() * .4, t: 0 });
     }
-    parts.push({ k:'r', x, y, r: 10, max: big ? 90 : 55, life: .45, t: 0 });
+    parts.push({ k: 1, x, y, r: 10, max: big ? 90 : 55, life: .45, t: 0 });
   }
   function drawParts(dt){
     for (let i = parts.length - 1; i >= 0; i--){
       const p = parts[i]; p.t += dt;
-      if (p.t >= p.life){ parts.splice(i, 1); continue; }
+      if (p.t >= p.life){ parts[i] = parts[parts.length - 1]; parts.pop(); continue; }
       const a = 1 - p.t / p.life;
-      if (p.k === 's'){
+      if (p.k === 0){
         p.vy += 500 * dt; p.x += p.vx * dt; p.y += p.vy * dt;
-        cx.globalAlpha = a; cx.fillStyle = p.c; cx.shadowColor = p.c; cx.shadowBlur = 8;
+        cx.globalAlpha = a; cx.fillStyle = p.c;
         cx.beginPath(); cx.arc(p.x, p.y, p.r * a + .5, 0, 7); cx.fill();
       } else {
-        cx.globalAlpha = a; cx.strokeStyle = '#ffc83d'; cx.lineWidth = 4 * a; cx.shadowColor = '#ffc83d'; cx.shadowBlur = 12;
-        cx.beginPath(); cx.arc(p.x, p.y, p.r + (p.max - p.r) * (1 - a), 0, 7); cx.stroke();
+        const rr = p.r + (p.max - p.r) * (1 - a);
+        cx.strokeStyle = '#ffc83d';
+        cx.globalAlpha = a * .35; cx.lineWidth = 10 * a; cx.beginPath(); cx.arc(p.x, p.y, rr, 0, 7); cx.stroke();
+        cx.globalAlpha = a; cx.lineWidth = 4 * a; cx.beginPath(); cx.arc(p.x, p.y, rr, 0, 7); cx.stroke();
       }
     }
-    cx.globalAlpha = 1; cx.shadowBlur = 0;
+    cx.globalAlpha = 1;
+  }
+
+  // ---------- "+100" pops, drawn on the canvas instead of new DOM nodes ----------
+  let pops = [];
+  function drawPops(dt){
+    for (let i = pops.length - 1; i >= 0; i--){
+      const p = pops[i]; p.t += dt;
+      if (p.t >= 1){ pops[i] = pops[pops.length - 1]; pops.pop(); continue; }
+      const spr = p.big ? popBig : popSmall; if (!spr) continue;
+      let op, dy, s;
+      if (p.t < .2){ const e = p.t / .2; op = e; dy = -16 * e; s = .5 + .7 * e; }
+      else { const e = (p.t - .2) / .8; op = 1 - e; dy = -16 - 54 * e; s = 1.2 - .2 * e; }
+      const w = spr.w * s, h = spr.h * s;
+      cx.globalAlpha = op; cx.drawImage(spr.c, p.x - w / 2, p.y + 14 + dy - h / 2, w, h);
+    }
+    cx.globalAlpha = 1;
   }
 
   // ---------- game ----------
   let coins = [], score = 0, caught = 0, running = false, spawnT = 0, last = 0, endAt = 0;
+  let lastSec = -1, hurry = false, idle = false, catchAnim = null, bumpA = [];
   function spawn(){
     const big = Math.random() < .2, r = big ? 30 : 20 + Math.random() * 4;
     coins.push({ x: r + Math.random() * (PW - 2 * r), y: 70 - r, r, v: 260 + Math.random() * 140, rot: Math.random() * 6.28, vr: (Math.random() - .5) * 4, big, wob: Math.random() * 6.28 });
   }
-  function popAt(x, y, txt, big){ const d = document.createElement('div'); d.className = 'pop' + (big ? ' big' : ''); d.textContent = txt; d.style.left = x + 'px'; d.style.top = y + 'px'; phoneEl.appendChild(d); setTimeout(() => d.remove(), 1000); }
-  function setScore(){
-    $('scoreN').textContent = fmt(score); $('cardN').textContent = fmt(score);    // both places
-    [$('score'), $('cardN')].forEach(el => { el.classList.remove('bump'); void el.offsetWidth; el.classList.add('bump'); });
+  function setScore(anim){
+    const s = fmt(score); scoreN.textContent = s; cardN.textContent = s;    // both places
+  }
+  function onCatch(c, top){
+    const val = c.big ? BIG : SMALL; score += val; caught++; setScore(true);
+    card.classList.add('glow'); clearTimeout(card._g); card._g = setTimeout(() => card.classList.remove('glow'), 250);
+    burst(c.x, top, c.big); pops.push({ x: c.x, y: top - 16, big: c.big, t: 0 });
+    vib(c.big ? [20,30,20] : 8, c.big);
   }
   function frame(t){
+    requestAnimationFrame(frame);
     const dt = Math.min(.05, (t - last) / 1000); last = t;
-    cx.clearRect(0, 0, PW, PH);
     if (running){
-      const left = Math.max(0, (endAt - t) / 1000);
-      $('timeN').textContent = Math.ceil(left);
-      $('timer').classList.toggle('hurry', left <= 2);
+      const left = Math.max(0, (endAt - t) / 1000), sec = Math.ceil(left);
+      if (sec !== lastSec){
+        lastSec = sec; timeN.textContent = sec;
+        const h = left <= 2; if (h !== hurry){ hurry = h; timerEl.classList.toggle('hurry', h); }
+      }
       spawnT -= dt;
       if (spawnT <= 0){ spawn(); if (Math.random() < .5) spawn(); spawnT = .07 + Math.random() * .06; }
       targetX = Math.min(Math.max(targetX, 0), PW - CW);
@@ -330,41 +416,42 @@ input{-webkit-user-select:text;user-select:text;touch-action:auto}
       placeCard();
       if (left <= 0) finish();
     }
+    // nothing on screen -> clear once and stop drawing
+    if (!coins.length && !parts.length && !pops.length){
+      if (!idle){ cx.clearRect(0, 0, PW, PH); idle = true; }
+      return;
+    }
+    idle = false;
+    cx.clearRect(0, 0, PW, PH);
     const top = cardY(), L = cardX, R = cardX + CW;
     for (let i = coins.length - 1; i >= 0; i--){
       const c = coins[i];
-      c.y += c.v * dt; c.rot += c.vr * dt; c.wob += dt * 3; c.x += Math.sin(c.wob) * .4;
+      c.y += c.v * dt; c.rot += c.vr * dt; c.wob += dt * 3; c.x += Math.sin(c.wob) * 24 * dt;
       if (running && c.y + c.r * .4 >= top && c.y - c.r <= top + 26 && c.x >= L - c.r * .3 && c.x <= R + c.r * .3){
-        coins.splice(i, 1); const val = c.big ? BIG : SMALL; score += val; caught++; setScore();
-        card.classList.remove('catch'); void card.offsetWidth; card.classList.add('catch');
-        card.classList.add('glow'); clearTimeout(card._g); card._g = setTimeout(() => card.classList.remove('glow'), 250);
-        burst(c.x, top, c.big); popAt(c.x, top - 16, '+' + val, c.big); vib(c.big ? [20,30,20] : 8);
+        coins[i] = coins[coins.length - 1]; coins.pop();
+        onCatch(c, top);
         continue;
       }
-      if (c.y - c.r > PH){ coins.splice(i, 1); continue; }
-      // golden trail
-      const g = cx.createLinearGradient(c.x, c.y - c.r * 3.2, c.x, c.y);
-      g.addColorStop(0, 'rgba(255,200,61,0)'); g.addColorStop(1, 'rgba(255,200,61,.35)');
-      cx.fillStyle = g; cx.beginPath(); cx.moveTo(c.x - c.r * .55, c.y); cx.lineTo(c.x + c.r * .55, c.y); cx.lineTo(c.x, c.y - c.r * 3.2); cx.fill();
-      const sc = Math.abs(Math.cos(c.rot)) * .3 + .7;
-      cx.save(); cx.translate(c.x, c.y); cx.scale(sc, 1);
-      cx.shadowColor = c.big ? 'rgba(255,190,40,.9)' : 'rgba(200,140,0,.35)'; cx.shadowBlur = c.big ? 22 : 10; cx.shadowOffsetY = c.big ? 0 : 4;
-      if (coinImg.complete) cx.drawImage(coinImg, -c.r, -c.r, c.r * 2, c.r * 2);
-      cx.restore();
+      if (c.y - c.r > PH){ coins[i] = coins[coins.length - 1]; coins.pop(); continue; }
+      const spr = c.big ? sprBig : sprSmall;
+      if (spr){
+        const k = c.r / SPR_R, hh = spr.half * k, sc = Math.abs(Math.cos(c.rot)) * .3 + .7, hw = hh * sc;
+        cx.drawImage(spr.c, c.x - hw, c.y - hh, hw * 2, hh * 2);
+      }
     }
     drawParts(dt);
-    requestAnimationFrame(frame);
+    drawPops(dt);
   }
   function start(){
-    coins = []; parts = []; score = 0; caught = 0; spawnT = 0; setScore();
-    $('timeN').textContent = GAME_SEC; $('timer').classList.remove('hurry');
+    coins = []; parts = []; pops = []; score = 0; caught = 0; spawnT = 0; setScore(false);
+    lastSec = -1; hurry = false; timeN.textContent = GAME_SEC; timerEl.classList.remove('hurry');
     ['startScr','winScr'].forEach(id => $(id).classList.add('hide'));
     $('acct').classList.remove('open');
     // 3-2-1 countdown
     const cnt = $('count'), n = $('countN'); let k = 3; cnt.classList.add('on');
     const tick = () => {
       if (k === 0){ cnt.classList.remove('on'); endAt = performance.now() + GAME_SEC * 1000; running = true; return; }
-      n.textContent = k; n.style.animation = 'none'; void n.offsetWidth; n.style.animation = ''; vib(10); k--; setTimeout(tick, 320);
+      n.textContent = k; n.style.animation = 'none'; void n.offsetWidth; n.style.animation = ''; vib(10, true); k--; setTimeout(tick, 320);
     };
     tick();
   }
@@ -390,7 +477,7 @@ input{-webkit-user-select:text;user-select:text;touch-action:auto}
     $('acN').textContent = '0'; $('tx').classList.remove('on'); $('txN').textContent = '+' + fmt(score);
     $('acct').classList.add('open');
     setTimeout(() => {
-      $('acCard').classList.add('glow'); countTo(score, $('acN'), 1300); $('tx').classList.add('on'); confetti(); vib([40,30,40]);
+      $('acCard').classList.add('glow'); countTo(score, $('acN'), 1300); $('tx').classList.add('on'); confetti(); vib([40,30,40], true);
       setTimeout(() => $('acCard').classList.remove('glow'), 1600);
     }, 700);
   }
@@ -405,19 +492,24 @@ input{-webkit-user-select:text;user-select:text;touch-action:auto}
     }
     if (conf) return; conf = true; let lt = performance.now();
     (function f(t){
-      const dt = Math.min(.05, (t - lt) / 1000); lt = t; fx.clearRect(0,0,PW,PH);
+      const dt = Math.min(.05, (t - lt) / 1000); lt = t;
+      fx.setTransform(DPR, 0, 0, DPR, 0, 0); fx.clearRect(0, 0, PW, PH);
       bits = bits.filter(b => (b.life -= dt) > 0);
-      for (const b of bits){ b.vy += 520 * dt; b.vx *= .99; b.x += b.vx * dt; b.y += b.vy * dt; b.r += b.vr * dt;
-        fx.save(); fx.translate(b.x, b.y); fx.rotate(b.r); fx.globalAlpha = Math.min(1, b.life); fx.fillStyle = b.c; fx.fillRect(-b.w/2, -b.h/2, b.w, b.h * Math.abs(Math.cos(b.r * 1.3))); fx.restore(); }
-      if (bits.length) requestAnimationFrame(f); else { conf = false; fx.clearRect(0,0,PW,PH); }
+      for (const b of bits){
+        b.vy += 520 * dt; b.vx *= .99; b.x += b.vx * dt; b.y += b.vy * dt; b.r += b.vr * dt;
+        const co = Math.cos(b.r) * DPR, si = Math.sin(b.r) * DPR, hh = b.h * Math.abs(Math.cos(b.r * 1.3));
+        fx.setTransform(co, si, -si, co, b.x * DPR, b.y * DPR);
+        fx.globalAlpha = Math.min(1, b.life); fx.fillStyle = b.c; fx.fillRect(-b.w / 2, -b.h / 2, b.w, hh);
+      }
+      fx.setTransform(DPR, 0, 0, DPR, 0, 0); fx.globalAlpha = 1;
+      if (bits.length) requestAnimationFrame(f); else { conf = false; fx.clearRect(0, 0, PW, PH); }
     })(lt);
   }
 
-
   fit();
-  addEventListener('resize', fit);
-  addEventListener('orientationchange', () => setTimeout(fit, 150));
-  if (window.visualViewport) visualViewport.addEventListener('resize', fit);
+  addEventListener('resize', qfit);
+  addEventListener('orientationchange', () => setTimeout(qfit, 150));
+  if (window.visualViewport) visualViewport.addEventListener('resize', qfit);
   last = performance.now(); requestAnimationFrame(frame);
 })();
 </script>
